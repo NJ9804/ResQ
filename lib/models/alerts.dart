@@ -1,5 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:googlemap/services/local_notifications.dart';
+import 'package:googlemap/services/location_service.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Alert {
   final String id;
@@ -35,6 +38,8 @@ class Alerts extends ChangeNotifier {
   final CollectionReference alertsCollection =
       FirebaseFirestore.instance.collection('alerts');
   final List<Alert> _alerts = [];
+  LocationService locationService = LocationService();
+  String? _lastProcessedAlertId;
 
   Alerts() {
     _setupAlertListener();
@@ -44,26 +49,59 @@ class Alerts extends ChangeNotifier {
 
   void _setupAlertListener() {
     alertsCollection.snapshots().listen((snapshot) {
-      _alerts.clear();
-      snapshot.docs.forEach((doc) {
-        final data = doc.data() as Map<String, dynamic>;
-        _alerts.add(Alert(
-          id: doc.id,
-          title: data['title'] as String,
-          description: data['description'] as String,
-          location: data['location'] as String,
-          date: data['date'] as String,
-          time: data['time'] as String,
-          imageUrl: data['imageUrl'] as String,
-          latitude: _convertToDouble(data['latitude']),
-          longitude: _convertToDouble(data['longitude']),
-          status: data['status'] as String,
-          upvotes: _convertToDouble(data['upvotes']),
-          type: data['type'] as String,
-        ));
-      });
-      notifyListeners();
+      for (var doc in snapshot.docChanges) {
+        if (doc.type == DocumentChangeType.added) {
+          final data = doc.doc.data() as Map<String, dynamic>;
+          final newAlert = Alert(
+            id: doc.doc.id,
+            title: data['title'] as String,
+            description: data['description'] as String,
+            location: data['location'] as String,
+            date: data['date'] as String,
+            time: data['time'] as String,
+            imageUrl: data['imageUrl'] as String,
+            latitude: _convertToDouble(data['latitude']),
+            longitude: _convertToDouble(data['longitude']),
+            status: data['status'] as String,
+            upvotes: _convertToDouble(data['upvotes']),
+            type: data['type'] as String,
+          );
+
+          // Add the alert to the list
+          _alerts.add(newAlert);
+
+          // Check if this alert is new and should trigger a notification
+          if (newAlert.id != _lastProcessedAlertId) {
+            _applyLatestPreferencesAndCheckForNotification(newAlert);
+            _lastProcessedAlertId = newAlert.id;
+          }
+        }
+      }
+      notifyListeners(); // Notify listeners about the new alerts
     });
+  }
+
+  Future<void> _applyLatestPreferencesAndCheckForNotification(
+      Alert alert) async {
+    final prefs = await SharedPreferences.getInstance();
+    final alertTypes = prefs.getStringList('selectedAlertTypes') ?? [];
+    final selectedAlertTypes = alertTypes
+        .map((type) => AlertType.values.firstWhere((e) => e.toString() == type))
+        .toSet();
+    final notificationRadius = prefs.getDouble('notificationRadius') ?? 5.0;
+
+    if (selectedAlertTypes.contains(AlertType.values
+        .firstWhere((e) => e.toString() == 'AlertType.${alert.type}'))) {
+      final double distance = await locationService.calculateDistance(
+          alert.latitude, alert.longitude);
+      if (distance <= notificationRadius) {
+        LocalNotifications.showSimpleNotification(
+          title: alert.title,
+          body: alert.description,
+          payload: alert.type,
+        );
+      }
+    }
   }
 
   void addAlertToDb(Alert alert) {
@@ -80,6 +118,14 @@ class Alerts extends ChangeNotifier {
       'upvotes': alert.upvotes,
       'type': alert.type,
     });
+  }
+
+  Alert? getAlertById(String id) {
+    try {
+      return _alerts.firstWhere((alert) => alert.id == id);
+    } catch (e) {
+      return null;
+    }
   }
 
   double _convertToDouble(dynamic value) {
@@ -102,6 +148,48 @@ enum AlertType {
   naturalDisaster,
   wildanimals,
   others
+}
+
+String getAlertTypeLabel(AlertType type) {
+  switch (type) {
+    case AlertType.accidents:
+      return 'Accidents';
+    case AlertType.traffic:
+      return 'Traffic';
+    case AlertType.construction:
+      return 'Construction';
+    case AlertType.roadblock:
+      return 'Roadblock';
+    case AlertType.naturalDisaster:
+      return 'Natural Disaster';
+    case AlertType.wildanimals:
+      return 'Wild Animals';
+    case AlertType.others:
+      return 'Others';
+    default:
+      return '';
+  }
+}
+
+String getAlertIcon(AlertType type) {
+  switch (type) {
+    case AlertType.accidents:
+      return 'assets/icons/accident.png';
+    case AlertType.traffic:
+      return 'assets/icons/traffic.png';
+    case AlertType.construction:
+      return 'assets/icons/construction.png';
+    case AlertType.roadblock:
+      return 'assets/icons/roadblock.png';
+    case AlertType.naturalDisaster:
+      return 'assets/icons/naturaldisaster.png';
+    case AlertType.wildanimals:
+      return 'assets/icons/wildanimals.png';
+    case AlertType.others:
+      return 'assets/icons/others.png';
+    default:
+      return '';
+  }
 }
 
 extension AlertTypeExtension on AlertType {

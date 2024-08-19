@@ -16,7 +16,7 @@ class AlertTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print(alert.id);
+
     return Consumer<LocationService>(
       builder: (context, locationService, child) {
         return InkWell(

@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:googlemap/pages/settings_page.dart';
+import 'package:googlemap/services/auth/auth_service.dart';
 import 'drawer_tile.dart';
 
 class MyDrawer extends StatelessWidget {
   const MyDrawer({super.key});
 
-  // Future<void> logout(BuildContext context) async {
-  //   print('Logging out...');
-  //   final authService = AuthService();
-  //   await authService.signOut();
-  //   print('Logged out');
-  // }
+  Future<void> logout(BuildContext context) async {
+    print('Logging out...');
+    final authService = AuthService();
+    await authService.signOut();
+    print('Logged out');
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -51,7 +52,7 @@ class MyDrawer extends StatelessWidget {
               text: "L O G O U T",
               icon: Icons.logout,
               onTap: () {
-                // logout(context);
+                logout(context);
                 Navigator.pop(context);
               }),
           const SizedBox(height: 25),

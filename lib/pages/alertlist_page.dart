@@ -5,6 +5,7 @@ import 'package:googlemap/components/silver_appbar.dart';
 import 'package:googlemap/components/tab_bar.dart';
 import 'package:googlemap/models/alerts.dart'; // Ensure this path is correct
 import 'package:googlemap/components/alert_tile.dart';
+import 'package:googlemap/pages/alert_details.dart';
 import 'package:provider/provider.dart'; // Ensure this path is correct
 // import 'package:googlemap/pages/alert_detail_page.dart'; // Ensure this path is correct
 
@@ -58,13 +59,12 @@ class _AlertlistPageState extends State<AlertlistPage> with SingleTickerProvider
               return AlertTile(
                 alert: alert,
                 onTap: () {
-                  // Handle tap event
-                  // Navigator.push(
-                  //   context,
-                  //   MaterialPageRoute(
-                  //     builder: (context) => AlertDetailPage(alert: alert),
-                  //   ),
-                  // );
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => AlertDetailPage(alertId: alert.id),
+                    ),
+                  );
                 },
               );
             },
