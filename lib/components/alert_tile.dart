@@ -47,11 +47,12 @@ class AlertTile extends StatelessWidget {
                           const SizedBox(height: 5),
                           Row(
                             children: [
-                              Icon(
-                                Icons.location_pin,
-                                color: Theme.of(context).colorScheme.primary,
-                                size: 15,
+                              Image.asset(
+                                'assets/gps.png',
+                                height: 15,
+                                width: 15,
                               ),
+                              const SizedBox(width: 5),
                               Text(
                                 locationService.latitude != null && locationService.longitude != null
                                     ? "${alert.location} (${locationService.calculateDistance(alert.latitude, alert.longitude).toStringAsFixed(2)} km)"
@@ -60,28 +61,32 @@ class AlertTile extends StatelessWidget {
                             ],
                           ),
                           const SizedBox(height: 5),
-                          Text(
-                            "${alert.date} at ${alert.time}",
-                            style: TextStyle(
-                              color: Theme.of(context).colorScheme.inversePrimary,
-                            ),
+                          Row(
+                            children: [
+                              Icon(
+                                Icons.access_time,
+                                size: 15,
+                                color: Theme.of(context).colorScheme.primary,
+                              ),
+                              const SizedBox(width: 5),
+                              Text(
+                                alert.time,
+                                style: TextStyle(
+                                  color: Theme.of(context).colorScheme.inversePrimary,
+                                ),
+                              ),
+                            ],
                           ),
                           const SizedBox(height: 5),
                           Text(
                             "Status: ${alert.status}",
                             style: TextStyle(
-                              color: alert.status == 'Resolved'
+                              color: alert.status == 'resolved'
                                   ? Colors.green
                                   : Colors.red,
                             ),
                           ),
                           const SizedBox(height: 5),
-                          // Text(
-                          //   "Type: ${alert.type}",
-                          //   style: TextStyle(
-                          //     color: Theme.of(context).colorScheme.tertiary,
-                          //   ),
-                          // ),
                         ],
                       ),
                     ),

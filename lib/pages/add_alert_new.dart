@@ -161,7 +161,7 @@ class _AddAlertNewState extends State<AddAlertNew>
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 color: isSelected ? Colors.yellow : Theme.of(context).colorScheme.inversePrimary,
-                fontSize: 12,
+                fontSize: 10,
               ),
             ),
           ],
