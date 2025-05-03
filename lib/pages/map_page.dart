@@ -24,9 +24,9 @@ class _MapPageState extends State<MapPage> {
 
   Future<void> _fetchCurrentLocation() async {
     final locationService = Provider.of<LocationService>(context, listen: false);
-    final locationData = await locationService.currentLocation;
+    final locationData = locationService.currentLocation;
     setState(() {
-      _currentLocation = locationData != null ? LatLng(locationData.latitude!, locationData.longitude!) : null;
+      _currentLocation = locationData != null ? LatLng(locationData.latitude, locationData.longitude) : null;
     });
   }
 

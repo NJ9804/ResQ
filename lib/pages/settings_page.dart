@@ -6,7 +6,7 @@ import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SettingsPage extends StatefulWidget {
-  const SettingsPage({Key? key}) : super(key: key);
+  const SettingsPage({super.key});
 
   @override
   _SettingsPageState createState() => _SettingsPageState();
@@ -39,7 +39,7 @@ class _SettingsPageState extends State<SettingsPage> {
     await prefs.setStringList('selectedAlertTypes', alertTypes);
     await prefs.setDouble('notificationRadius', _notificationRadius);
     ScaffoldMessenger.of(context).showSnackBar(
-    SnackBar(
+    const SnackBar(
       content: Text('Preferences saved!'),
       duration: Duration(seconds: 2),
     ),
@@ -48,7 +48,7 @@ class _SettingsPageState extends State<SettingsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Settings")),
+      appBar: AppBar(title: const Text("Settings")),
       backgroundColor: Theme.of(context).colorScheme.surface,
       body: Column(
         children: [
@@ -104,10 +104,10 @@ class _SettingsPageState extends State<SettingsPage> {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 ListView(
                   shrinkWrap: true,
-                  physics: NeverScrollableScrollPhysics(),
+                  physics: const NeverScrollableScrollPhysics(),
                   children: AlertType.values.map((alertType) {
                     return ListTile(
                       title: Text(getAlertTypeLabel(alertType)),
@@ -127,7 +127,7 @@ class _SettingsPageState extends State<SettingsPage> {
                     );
                   }).toList(),
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 Text(
                   "Notification Radius",
                   style: TextStyle(

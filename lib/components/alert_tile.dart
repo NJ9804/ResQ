@@ -33,7 +33,7 @@ class AlertTile extends StatelessWidget {
                         children: [
                           Text(
                             alert.title,
-                            style: TextStyle(
+                            style: const TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 16,
                             ),

@@ -3,7 +3,7 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class MapPickerScreen extends StatefulWidget {
   final LatLng? initialLocation;
-  MapPickerScreen(this.initialLocation);
+  const MapPickerScreen(this.initialLocation, {super.key});
 
   @override
   _MapPickerScreenState createState() => _MapPickerScreenState();
@@ -41,7 +41,7 @@ class _MapPickerScreenState extends State<MapPickerScreen> {
             markers: _pickedLocation != null
                 ? {
                     Marker(
-                      markerId: MarkerId('picked-location'),
+                      markerId: const MarkerId('picked-location'),
                       position: _pickedLocation!,
                     ),
                   }
@@ -53,7 +53,7 @@ class _MapPickerScreenState extends State<MapPickerScreen> {
             Align(
               alignment: Alignment.bottomCenter,
               child: Container(
-                margin: EdgeInsets.only(bottom: 30.0),
+                margin: const EdgeInsets.only(bottom: 30.0),
                 child: FloatingActionButton.extended(
                   onPressed: () {
                     Navigator.pop(context, _pickedLocation);
@@ -62,12 +62,12 @@ class _MapPickerScreenState extends State<MapPickerScreen> {
                     "Select",
                     style: TextStyle(color: Colors.white),
                   ),
-                  icon: Icon(
+                  icon: const Icon(
                     Icons.check,
                     color: Colors.white,
                   ),
                   backgroundColor: Theme.of(context).colorScheme.primary,
-                  extendedPadding: EdgeInsets.fromLTRB(20, 10, 20, 10),
+                  extendedPadding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
                 ),
               ),
             ),

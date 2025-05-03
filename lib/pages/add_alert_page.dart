@@ -9,6 +9,8 @@ import 'package:provider/provider.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class AddAlert extends StatefulWidget {
+  const AddAlert({super.key});
+
   @override
   _AddAlertState createState() => _AddAlertState();
 }
@@ -114,19 +116,19 @@ class _AddAlertState extends State<AddAlert> {
             GestureDetector(
               onTap: () => _pickLocation(context),
               child: Container(
-                padding: EdgeInsets.symmetric(vertical: 15.0, horizontal: 10.0),
+                padding: const EdgeInsets.symmetric(vertical: 15.0, horizontal: 10.0),
                 decoration: BoxDecoration(
                   border: Border.all(color: Colors.grey),
                   borderRadius: BorderRadius.circular(5.0),
                 ),
                 child: Row(
                   children: [
-                    Icon(Icons.location_on, color: Colors.grey),
+                    const Icon(Icons.location_on, color: Colors.grey),
                     const SizedBox(width: 10.0),
                     Expanded(
                       child: Text(
                         locationDisplay ?? "Tap to pick location",
-                        style: TextStyle(color: Colors.black54),
+                        style: const TextStyle(color: Colors.black54),
                       ),
                     ),
                   ],

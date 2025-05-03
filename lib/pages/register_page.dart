@@ -18,22 +18,22 @@ class _RegisterPageState extends State<RegisterPage> {
   final TextEditingController confirmPasswordController = TextEditingController();
 
   void register() async {
-    final _authService = AuthService();
+    final authService = AuthService();
     if(passwordController.text == confirmPasswordController.text) {
       try {
-        await _authService.signUpWithEmailAndPassword(emailController.text, passwordController.text);
+        await authService.signUpWithEmailAndPassword(emailController.text, passwordController.text);
         Navigator.push(context, MaterialPageRoute(builder: (context) => const AlertlistPage()));
       } catch (e) {
         showDialog(context: context, builder: (context) {
           return AlertDialog(
-            title: Text("Error"),
+            title: const Text("Error"),
             content: Text(e.toString()),
             actions: [
               TextButton(
                 onPressed: () {
                   Navigator.pop(context);
                 },
-                child: Text("OK"),
+                child: const Text("OK"),
               )
             ],
           );
@@ -42,14 +42,14 @@ class _RegisterPageState extends State<RegisterPage> {
     } else {
       showDialog(context: context, builder: (context) {
         return AlertDialog(
-          title: Text("Error"),
-          content: Text("Passwords do not match"),
+          title: const Text("Error"),
+          content: const Text("Passwords do not match"),
           actions: [
             TextButton(
               onPressed: () {
                 Navigator.pop(context);
               },
-              child: Text("OK"),
+              child: const Text("OK"),
             )
           ],
         );
@@ -109,7 +109,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 Text("Already have an Account?",
                     style: TextStyle(
                         color: Theme.of(context).colorScheme.inversePrimary)),
-                SizedBox(width: 5),
+                const SizedBox(width: 5),
                 GestureDetector(
                   onTap: widget.onTap,
                   child: Text("Login Here",

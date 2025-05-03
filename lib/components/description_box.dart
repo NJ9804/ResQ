@@ -39,7 +39,7 @@ class MyDescriptionBox extends StatelessWidget {
             text: "Add Alert",
             onTap: () {
               Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => AddAlertNew()));
+                  context, MaterialPageRoute(builder: (context) => const AddAlertNew()));
             },
           ),
         ],

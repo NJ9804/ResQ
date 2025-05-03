@@ -16,7 +16,7 @@ final DarwinInitializationSettings initializationSettingsDarwin =
     DarwinInitializationSettings(
         onDidReceiveLocalNotification :(id, title, body, payload) async {
         });
-final LinuxInitializationSettings initializationSettingsLinux =
+const LinuxInitializationSettings initializationSettingsLinux =
     LinuxInitializationSettings(
         defaultActionName: 'Open notification');
 final InitializationSettings initializationSettings = InitializationSettings(

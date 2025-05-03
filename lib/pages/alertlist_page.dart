@@ -19,11 +19,13 @@ class AlertlistPage extends StatefulWidget {
 class _AlertlistPageState extends State<AlertlistPage> with SingleTickerProviderStateMixin {
   late TabController _tabController;
 
+  @override
   void initState() {
     super.initState();
     _tabController = TabController(length: AlertType.values.length, vsync: this);
   }
 
+  @override
   void dispose() {
     _tabController.dispose();
     super.dispose();
@@ -43,7 +45,7 @@ class _AlertlistPageState extends State<AlertlistPage> with SingleTickerProvider
           padding: const EdgeInsets.all(16.0),
           child: Text(
             type.toString().split('.').last.toUpperCase(), 
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 23,
               fontWeight: FontWeight.bold,
             ),// Display the alert type as a heading
@@ -82,14 +84,13 @@ class _AlertlistPageState extends State<AlertlistPage> with SingleTickerProvider
     return Scaffold(
       drawer: const MyDrawer(),
       body: NestedScrollView(headerSliverBuilder: (context,innerBoxIsScrolled) => [
-        MySilverAppBar(child: Column(
+        MySilverAppBar(title: MyTabBar(tabController: _tabController),child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const SizedBox(height: 10,),
             const MyDescriptionBox(),
           ],
-        ), 
-        title: MyTabBar(tabController: _tabController),
+        ),
         ),
       ],
       body: Consumer<Alerts>(

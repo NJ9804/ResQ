@@ -174,10 +174,10 @@ class _AddAlertNewState extends State<AddAlertNew>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Center(
+        title: const Center(
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: const [
+            children: [
               Icon(Icons.warning_amber_outlined),
               Text(' Add Alert')
             ],
@@ -243,13 +243,13 @@ class _AddAlertNewState extends State<AddAlertNew>
                               blurRadius: 10,
                               spreadRadius: 5)
                         ]),
-                    child: Column(
+                    child: const Column(
                       children: [
-                        const CircleAvatar(
+                        CircleAvatar(
                           radius: 40,
                           backgroundImage: AssetImage('assets/user.png'),
                         ),
-                        const SizedBox(height: 10),
+                        SizedBox(height: 10),
                         Text(
                           'Jane Cooper',
                           style: TextStyle(fontWeight: FontWeight.bold),
@@ -259,7 +259,7 @@ class _AddAlertNewState extends State<AddAlertNew>
                     ),
                   ),
                 ),
-                SizedBox(width: 20),
+                const SizedBox(width: 20),
                 Expanded(
                   child: GestureDetector(
                     onTap: () {
@@ -311,7 +311,7 @@ class _AddAlertNewState extends State<AddAlertNew>
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text("  Alert Type",
+                const Text("  Alert Type",
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 20,
@@ -333,7 +333,7 @@ class _AddAlertNewState extends State<AddAlertNew>
               ],
             ),
           ),
-          SizedBox(height: 70),
+          const SizedBox(height: 70),
           Consumer<LocationService>(
             builder: (context, locationService, child) {
               return GradientSlideToAct(

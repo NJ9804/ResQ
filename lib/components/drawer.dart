@@ -45,7 +45,7 @@ class MyDrawer extends StatelessWidget {
               onTap: () {
                 Navigator.pop(context);
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => SettingsPage()));
+                    MaterialPageRoute(builder: (context) => const SettingsPage()));
               }),
           const Spacer(),
           MyDrawerTile(

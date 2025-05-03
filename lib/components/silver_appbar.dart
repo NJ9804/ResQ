@@ -22,7 +22,7 @@ class MySilverAppBar extends StatelessWidget {
         IconButton(
           icon: const Icon(Icons.map_rounded),
           onPressed: () {
-            Navigator.push(context, MaterialPageRoute(builder: (context) => MapPage()));
+            Navigator.push(context, MaterialPageRoute(builder: (context) => const MapPage()));
           },
         ),
       

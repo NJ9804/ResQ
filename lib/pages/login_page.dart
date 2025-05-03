@@ -7,6 +7,7 @@ class LoginPage extends StatefulWidget {
   final void Function()? onTap;
   const LoginPage({super.key,required this.onTap});
 
+  @override
   State<LoginPage> createState() => _LoginPageState();
 }
 
@@ -15,9 +16,9 @@ class _LoginPageState extends State<LoginPage> {
   final TextEditingController passwordController = TextEditingController();
 
   void login() async{
-    final _authService = AuthService();
+    final authService = AuthService();
     try {
-      await _authService.signInWithEmailAndPassword(emailController.text, passwordController.text);
+      await authService.signInWithEmailAndPassword(emailController.text, passwordController.text);
     } catch (e) {
       showDialog(context: context, builder: (context) {
         return AlertDialog(

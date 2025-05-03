@@ -92,7 +92,7 @@ class Alerts extends ChangeNotifier {
 
     if (selectedAlertTypes.contains(AlertType.values
         .firstWhere((e) => e.toString() == 'AlertType.${alert.type}'))) {
-      final double distance = await locationService.calculateDistance(
+      final double distance = locationService.calculateDistance(
           alert.latitude, alert.longitude);
       if (distance <= notificationRadius) {
         LocalNotifications.showSimpleNotification(

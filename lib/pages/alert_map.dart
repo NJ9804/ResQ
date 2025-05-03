@@ -6,7 +6,7 @@ import 'package:googlemap/models/alerts.dart';
 class AlertMapPage extends StatefulWidget {
   final Alert alert;
 
-  const AlertMapPage({required this.alert, Key? key}) : super(key: key);
+  const AlertMapPage({required this.alert, super.key});
 
   @override
   _AlertMapPageState createState() => _AlertMapPageState();

@@ -7,7 +7,7 @@ import 'package:googlemap/pages/pick_location_page.dart';
 class AlertDetailPage extends StatefulWidget {
   final String alertId;
 
-  const AlertDetailPage({required this.alertId, Key? key}) : super(key: key);
+  const AlertDetailPage({required this.alertId, super.key});
 
   @override
   _AlertDetailPageState createState() => _AlertDetailPageState();
@@ -70,9 +70,9 @@ class _AlertDetailPageState extends State<AlertDetailPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Row(
+        title: const Row(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: const [
+          children: [
             Icon(Icons.warning_amber_outlined),
             Text(' Alert Details'),
           ],

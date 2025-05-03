@@ -6,7 +6,7 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:geocoding/geocoding.dart';
 
 class LocationService with ChangeNotifier {
-  loc.Location _locationController = loc.Location();
+  final loc.Location _locationController = loc.Location();
   LatLng? _currentLocation;
   String? _locality;
   String? _sublocality;
@@ -24,21 +24,21 @@ class LocationService with ChangeNotifier {
   }
 
   void _initialize() async {
-    bool _serviceEnabled;
-    loc.PermissionStatus _permissionGranted;
+    bool serviceEnabled;
+    loc.PermissionStatus permissionGranted;
 
-    _serviceEnabled = await _locationController.serviceEnabled();
-    if (!_serviceEnabled) {
-      _serviceEnabled = await _locationController.requestService();
-      if (!_serviceEnabled) {
+    serviceEnabled = await _locationController.serviceEnabled();
+    if (!serviceEnabled) {
+      serviceEnabled = await _locationController.requestService();
+      if (!serviceEnabled) {
         return;
       }
     }
 
-    _permissionGranted = await _locationController.hasPermission();
-    if (_permissionGranted == loc.PermissionStatus.denied) {
-      _permissionGranted = await _locationController.requestPermission();
-      if (_permissionGranted != loc.PermissionStatus.granted) {
+    permissionGranted = await _locationController.hasPermission();
+    if (permissionGranted == loc.PermissionStatus.denied) {
+      permissionGranted = await _locationController.requestPermission();
+      if (permissionGranted != loc.PermissionStatus.granted) {
         return;
       }
     }
