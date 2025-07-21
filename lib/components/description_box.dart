@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:googlemap/components/button.dart';
 import 'package:googlemap/pages/add_alert_new.dart';
-import 'package:googlemap/pages/add_alert_page.dart';
 
 class MyDescriptionBox extends StatelessWidget {
   const MyDescriptionBox({super.key});

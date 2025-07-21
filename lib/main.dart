@@ -2,8 +2,6 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:googlemap/firebase_options.dart';
 import 'package:googlemap/models/alerts.dart';
-import 'package:googlemap/pages/add_alert_new.dart';
-import 'package:googlemap/pages/alertlist_page.dart';
 import 'package:googlemap/services/auth/auth_gate.dart';
 import 'package:googlemap/services/local_notifications.dart';
 import 'package:googlemap/services/location_service.dart';

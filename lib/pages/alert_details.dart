@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:googlemap/models/alerts.dart';
 import 'package:googlemap/pages/alert_map.dart';
-import 'package:googlemap/pages/pick_location_page.dart';
 
 class AlertDetailPage extends StatefulWidget {
   final String alertId;
