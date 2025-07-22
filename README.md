@@ -77,6 +77,7 @@ graph TD
 - **Creates historical data** for hazard prediction and prevention
 - **Bridges communication gaps** between public and authorities
 
+
 Each alert includes:
 
 🔖 Category and Type
