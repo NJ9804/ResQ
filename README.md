@@ -77,6 +77,19 @@ graph TD
 - **Creates historical data** for hazard prediction and prevention
 - **Bridges communication gaps** between public and authorities
 
+Each alert includes:
+
+🔖 Category and Type
+
+📍 Target Group or Location
+
+🕒 Timestamped Delivery and Logging
+
+🔔 Push Notifications to Mobile/Web Clients
+
+📝 Audit Trail for Message Lifecycle (Sent, Edited, Deleted)
+
+
 ## 📅 Future Roadmap
 
 - **AI verification**: Machine learning for automatic report validation
