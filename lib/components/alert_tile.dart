@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:googlemap/models/alerts.dart';
-import 'package:googlemap/services/location_service.dart';
+import 'package:resq/models/alerts.dart';
+import 'package:resq/services/location_service.dart';
 
 class AlertTile extends StatelessWidget {
   final Alert alert;

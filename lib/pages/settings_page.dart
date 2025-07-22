@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:googlemap/models/alerts.dart';
-import 'package:googlemap/themes/theme_provider.dart';
+import 'package:resq/models/alerts.dart';
+import 'package:resq/themes/theme_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 

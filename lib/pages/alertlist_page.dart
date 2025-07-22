@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:googlemap/components/description_box.dart';
-import 'package:googlemap/components/drawer.dart';
-import 'package:googlemap/components/silver_appbar.dart';
-import 'package:googlemap/components/tab_bar.dart';
-import 'package:googlemap/models/alerts.dart'; // Ensure this path is correct
-import 'package:googlemap/components/alert_tile.dart';
-import 'package:googlemap/pages/alert_details.dart';
+import 'package:resq/components/description_box.dart';
+import 'package:resq/components/drawer.dart';
+import 'package:resq/components/silver_appbar.dart';
+import 'package:resq/components/tab_bar.dart';
+import 'package:resq/models/alerts.dart'; // Ensure this path is correct
+import 'package:resq/components/alert_tile.dart';
+import 'package:resq/pages/alert_details.dart';
 import 'package:provider/provider.dart'; // Ensure this path is correct
-// import 'package:googlemap/pages/alert_detail_page.dart'; // Ensure this path is correct
+// import 'package:resq/pages/alert_detail_page.dart'; // Ensure this path is correct
 
 class AlertlistPage extends StatefulWidget {
   const AlertlistPage({super.key});

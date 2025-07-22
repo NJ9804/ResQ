@@ -1,11 +1,11 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:googlemap/firebase_options.dart';
-import 'package:googlemap/models/alerts.dart';
-import 'package:googlemap/services/auth/auth_gate.dart';
-import 'package:googlemap/services/local_notifications.dart';
-import 'package:googlemap/services/location_service.dart';
-import 'package:googlemap/themes/theme_provider.dart';
+import 'package:resq/firebase_options.dart';
+import 'package:resq/models/alerts.dart';
+import 'package:resq/services/auth/auth_gate.dart';
+import 'package:resq/services/local_notifications.dart';
+import 'package:resq/services/location_service.dart';
+import 'package:resq/themes/theme_provider.dart';
 import 'package:provider/provider.dart';
 
 void main() async {

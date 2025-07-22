@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:googlemap/components/button.dart';
-import 'package:googlemap/components/text_field.dart';
-import 'package:googlemap/pages/alertlist_page.dart';
-import 'package:googlemap/services/auth/auth_service.dart';
+import 'package:resq/components/button.dart';
+import 'package:resq/components/text_field.dart';
+import 'package:resq/pages/alertlist_page.dart';
+import 'package:resq/services/auth/auth_service.dart';
 
 class RegisterPage extends StatefulWidget {
   final void Function()? onTap;

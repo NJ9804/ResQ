@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:googlemap/models/alerts.dart';
+import 'package:resq/models/alerts.dart';
 
 class AlertMapPage extends StatefulWidget {
   final Alert alert;

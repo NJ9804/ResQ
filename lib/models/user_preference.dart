@@ -1,4 +1,4 @@
-import 'package:googlemap/models/alerts.dart';
+import 'package:resq/models/alerts.dart';
 
 class UserPreferences {
   Set<AlertType> selectedAlertTypes;

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:googlemap/pages/settings_page.dart';
-import 'package:googlemap/services/auth/auth_service.dart';
+import 'package:resq/pages/settings_page.dart';
+import 'package:resq/services/auth/auth_service.dart';
 import 'drawer_tile.dart';
 
 class MyDrawer extends StatelessWidget {

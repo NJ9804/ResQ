@@ -2,9 +2,9 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:googlemap/models/alerts.dart';
-import 'package:googlemap/pages/pick_location_page.dart';
-import 'package:googlemap/services/location_service.dart';
+import 'package:resq/models/alerts.dart';
+import 'package:resq/pages/pick_location_page.dart';
+import 'package:resq/services/location_service.dart';
 import 'package:gradient_slide_to_act/gradient_slide_to_act.dart';
 import 'package:provider/provider.dart';
 

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:googlemap/pages/map_page.dart';
+import 'package:resq/pages/map_page.dart';
 // import 'package:food_redistribute/pages/cart_page.dart';
 
 class MySilverAppBar extends StatelessWidget {

@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:googlemap/pages/alertlist_page.dart';
-import 'package:googlemap/services/auth/login_or_register.dart';
+import 'package:resq/pages/alertlist_page.dart';
+import 'package:resq/services/auth/login_or_register.dart';
 
 class AuthGate extends StatelessWidget {
   const AuthGate({super.key});

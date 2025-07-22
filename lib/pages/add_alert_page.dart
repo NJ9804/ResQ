@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:geocoding/geocoding.dart';
-import 'package:googlemap/components/button.dart';
-import 'package:googlemap/models/alerts.dart';
-import 'package:googlemap/pages/pick_location_page.dart';
-import 'package:googlemap/services/location_service.dart';
+import 'package:resq/components/button.dart';
+import 'package:resq/models/alerts.dart';
+import 'package:resq/pages/pick_location_page.dart';
+import 'package:resq/services/location_service.dart';
 import 'package:provider/provider.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 

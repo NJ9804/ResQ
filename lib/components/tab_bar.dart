@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'package:googlemap/models/alerts.dart';
+import 'package:resq/models/alerts.dart';
 
 class MyTabBar extends StatelessWidget {
   final TabController tabController;

@@ -1,6 +1,6 @@
 {
-    "name": "googlemap",
-    "short_name": "googlemap",
+    "name": "resq",
+    "short_name": "resq",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
