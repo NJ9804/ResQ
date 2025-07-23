@@ -120,3 +120,7 @@ Want to experience ResQ in action?
 You can download the latest APK and try it on your Android device:
 
 <p align="center"> <a href="https://github.com/SandraMariyaGeorge/citizenAlertApp/releases/download/v3/app-release.apk"> <img src="https://img.shields.io/badge/Download%20APK-ResQ-blue?style=for-the-badge&logo=android" alt="Download APK"/> </a> </p>
+
+### 🤝 Community Contributions
+We welcome community involvement to improve and scale the ResQ project!
+If you have ideas, bug fixes, or feature enhancements, feel free to open an issue or submit a pull request.
